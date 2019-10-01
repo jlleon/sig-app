@@ -1,0 +1,31 @@
+<nb-accordion>
+  <nb-accordion-item *ngIf="mostrarTabla.banco.tab" [expanded]="mostrarTabla.banco.exp">
+    <nb-accordion-item-header>
+      <sig-panel-resumen [tituloResumen]="tituloB" [datos]="resumenB"></sig-panel-resumen>
+    </nb-accordion-item-header>
+    <nb-accordion-item-body>
+      <sig-panel-tabla [datos]="datosBancos" [configuracion]="configuracion"></sig-panel-tabla>
+    </nb-accordion-item-body>
+  </nb-accordion-item>
+  <nb-accordion-item *ngIf="mostrarTabla.coop.tab" [expanded]="mostrarTabla.coop.exp">
+    <nb-accordion-item-header>
+      <sig-panel-resumen [tituloResumen]="tituloC" [datos]="resumenC"></sig-panel-resumen>
+    </nb-accordion-item-header>
+    <nb-accordion-item-body>
+      <sig-panel-tabla [datos]="datosCooperativas" [configuracion]="configuracion"></sig-panel-tabla>
+    </nb-accordion-item-body>
+  </nb-accordion-item>
+  <nb-accordion-item *ngIf="mostrarTabla.mut.tab" [expanded]="mostrarTabla.mut.exp">
+    <nb-accordion-item-header>
+      <sig-panel-resumen [tituloResumen]="tituloM" [datos]="resumenM"></sig-panel-resumen>
+    </nb-accordion-item-header>
+    <nb-accordion-item-body>
+      <sig-panel-tabla [datos]="datosMutualistas" [configuracion]="configuracion"></sig-panel-tabla>
+    </nb-accordion-item-body>
+  </nb-accordion-item>
+  <nb-accordion-item disabled="true" class="item-total">
+    <nb-accordion-item-header>
+      <sig-panel-resumen [tituloResumen]="tituloT" [datos]="resumenT"></sig-panel-resumen>
+    </nb-accordion-item-header>
+  </nb-accordion-item>
+</nb-accordion>

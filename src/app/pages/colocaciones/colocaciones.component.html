@@ -1,0 +1,16 @@
+<nb-card class="chart-card">
+  <nb-card-header>
+    <span class="stats">Instituciones Financieras (en miles)</span>
+    <nb-select class="type-select" *ngIf="muestraTipoInstituciones" [selected]="tipoInstitucion" (selectedChange)="changeInstitucion($event)">
+      <nb-option *ngFor="let institucion of tiposInstituciones" [value]="institucion">
+        {{ institucion }}
+      </nb-option>
+    </nb-select>
+  </nb-card-header>
+  <nb-card-body>
+    <sig-panel-charts [tipoInstitucion]="tipoInstitucion" [institucion]="institucion" [posicionActivas]="posicionActivas" [variacionActivas]="variacionActivas"></sig-panel-charts>
+  </nb-card-body>
+</nb-card>
+<nb-card>
+  <nb-card-body><sig-smart-table [variacionActivas]="variacionActivas"></sig-smart-table></nb-card-body>
+</nb-card>

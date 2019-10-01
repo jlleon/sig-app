@@ -1,0 +1,52 @@
+<nb-card>
+  <nb-card-header>
+    Administración de Usuarios
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-12">
+        <ng2-smart-table [settings]="settings" [source]="source" ></ng2-smart-table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <nb-card>
+          <nb-card-header>Datos Personales</nb-card-header>
+          <nb-card-body class="example-items-col">
+            <input type="text" nbInput fullWidth placeholder="Identificación" [(ngModel)]="usuario._id" required>
+            <div class="full-name-inputs">
+              <input type="text" nbInput fullWidth placeholder="Nombre" [(ngModel)]="usuario.nombre" required>
+              <input type="text" nbInput fullWidth placeholder="Apellido" [(ngModel)]="usuario.apellido" required>
+            </div>
+            <div class="full-name-inputs">
+              <nb-select [(ngModel)]="credencial.rol" class="elemento" (selectedChange)="cambiarRol($event)" placeholder="Seleccione el rol" required>
+                <nb-option value="admin">Administrador</nb-option>
+                <nb-option value="institucion_banco">Institución Banco</nb-option>
+                <nb-option value="institucion_coop">Institución Cooperativa</nb-option>
+                <nb-option value="institucion_mut">Institución Mutualista</nb-option>
+                <nb-option value="invitado">Invitado</nb-option>
+              </nb-select>
+              <nb-select [(ngModel)]="usuario.institucion" class="elemento" placeholder="Seleccione la institución" required>
+                <nb-option *ngFor="let institucion of instituciones" [value]="institucion.nombre_corto">{{ institucion.nombre_largo }}</nb-option>
+              </nb-select>
+            </div>
+            <input type="text" nbInput fullWidth placeholder="Correo electrónico" [(ngModel)]="usuario.email" required>
+            <input type="text" nbInput fullWidth placeholder="Teléfono" [(ngModel)]="usuario.telefono">
+          </nb-card-body>
+        </nb-card>
+        <nb-card>
+          <nb-card-header>Credenciales</nb-card-header>
+          <nb-card-body>
+            <input type="text" nbInput fullWidth placeholder="Username" [(ngModel)]="credencial._id" required>
+            <input type="password" nbInput fullWidth placeholder="Password" [(ngModel)]="credencial.password" required>
+          </nb-card-body>
+          <nb-card-footer>
+            <div style="text-align: right;">
+              <button nbButton (click)="onSubmit($event)">Guardar</button>
+            </div>
+          </nb-card-footer>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

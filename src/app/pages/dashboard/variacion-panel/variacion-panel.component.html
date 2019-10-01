@@ -1,0 +1,32 @@
+<div class="row">  
+  <div class="col-md-6">
+    <nb-card class="chart-card">
+        <nb-card-header>
+          <span class="stats">Variaciones Captaciones</span>
+          <nb-select class="type-select" [selected]="tipoVariacionPasivas" (selectedChange)="changeVariacionPasivas($event)">
+            <nb-option *ngFor="let variacion of tiposVariaciones" [value]="variacion">
+              {{ variacion }}
+            </nb-option>
+          </nb-select>
+        </nb-card-header>
+        <nb-card-body>
+          <sig-chart-variacion [datos]="barrasPasivas"></sig-chart-variacion>
+        </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-md-6">
+    <nb-card class="chart-card">
+        <nb-card-header>
+          <span class="stats">Variaciones Colocaciones</span>
+          <nb-select class="type-select" [selected]="tipoVariacionActivas" (selectedChange)="changeVariacionActivas($event)">
+            <nb-option *ngFor="let variacion of tiposVariaciones" [value]="variacion">
+              {{ variacion }}
+            </nb-option>
+          </nb-select>
+        </nb-card-header>
+        <nb-card-body>
+          <sig-chart-variacion [datos]="barrasActivas"></sig-chart-variacion>
+        </nb-card-body>
+    </nb-card>
+  </div>
+</div>

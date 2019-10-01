@@ -1,0 +1,16 @@
+<nb-card size="large">
+  <nb-tabset fullWidth (changeTab)="changeTab($event)">
+    <nb-tab tabTitle="Captaciones">
+      <div class="chart-container">
+        <sig-chart-panel-resumen [resumen]="resumenPasivas"></sig-chart-panel-resumen>
+        <sig-chart-tendencia [datos]="seriePasivas" *ngIf="mostrarPasivas"></sig-chart-tendencia>
+      </div>
+    </nb-tab>
+    <nb-tab tabTitle="Colocaciones" [lazyLoad]="true">
+      <div class="chart-container">
+        <sig-chart-panel-resumen [resumen]="resumenActivas"></sig-chart-panel-resumen>
+        <sig-chart-tendencia [datos]="serieActivas" *ngIf="mostrarActivas"></sig-chart-tendencia>
+      </div>
+    </nb-tab>
+  </nb-tabset>
+</nb-card>

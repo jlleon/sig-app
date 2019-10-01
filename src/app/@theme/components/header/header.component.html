@@ -1,0 +1,23 @@
+<div class="header-container">
+  <div class="logo-container">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <a class="logo" href="#" (click)="navigateHome()"><span>Sistema de Información Gerencial</span></a>
+  </div>
+</div>
+
+<div class="header-container">
+  <nb-actions size="medium">
+    <nb-action *ngIf="esAdministrador">
+      <nb-icon class="action-icon" icon="settings-2-outline" (click)="eventoClick($event)"></nb-icon>
+    </nb-action>
+    <nb-action class="user-action">
+      <nb-user [nbContextMenu]="userMenu"
+               [onlyPicture]="userPictureOnly"
+               [name]="user?.name"
+               nbContextMenuTag="menuUsuario">
+      </nb-user>
+    </nb-action>
+  </nb-actions>
+</div>

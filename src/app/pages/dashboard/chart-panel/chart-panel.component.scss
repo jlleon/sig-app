@@ -1,0 +1,78 @@
+@import '../../../@theme/styles/themes';
+
+$legend-all-orders-color: #00977e;
+$legend-payment-color: #6935ca;
+$legend-canceled-color: #3f4fda;
+
+@include nb-install-component() {
+
+  nb-tabset {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    ::ng-deep ul {
+      // make same size as card header
+      border-color: transparent;
+      padding-bottom: 1px;
+      .tab-link {
+        padding: 1.25rem 2rem;
+      }
+    }
+  }
+
+  nb-tab {
+    flex: 1;
+    padding: 0 0 1.25rem;
+  }
+
+  .chart-container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  sig-chart-tendencia {
+    display: block;
+    width: 100%;
+    // height: nb-theme(card-height-medium);
+
+    ::ng-deep {
+      .pie-label {
+        fill: nb-theme(text-basic-color);
+      }
+
+      text {
+        fill: nb-theme(text-hint-color);
+      }
+
+      path {
+        stroke-width: 3px
+      }
+      
+      .chart-legend {
+        .legend-labels {
+          background: nb-theme(background-basic-color-2);
+        }
+        .legend-label {
+          color: nb-theme(text-hint-color);
+          .active .legend-label-text {
+            color: nb-theme(text-basic-color);
+          }
+        }
+      }
+
+      .total-value,
+      .item-value,
+      .item-percent {
+        line-height: 1.25;
+      }
+
+      .legend-items {
+        overflow-y: hidden;
+      }
+    }
+  }
+}

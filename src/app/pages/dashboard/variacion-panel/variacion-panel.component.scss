@@ -1,0 +1,80 @@
+@import '../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+$legend-all-orders-color: #00977e;
+$legend-payment-color: #6935ca;
+$legend-canceled-color: #3f4fda;
+
+@include nb-install-component() {
+
+  .chart-card {
+    box-shadow: none;
+    margin-bottom: 0;
+    border-width: 0;
+  }
+
+  .chart-card {
+    flex: 1 0 auto;
+  }
+
+  .chart-card nb-card-header {
+    display: flex;
+    align-items: center;
+    padding-top: nb-theme(card-header-with-select-padding-top);
+    padding-bottom: nb-theme(card-header-with-select-padding-bottom);
+
+    // prevents double border from chart yAxisSplitLine
+    margin-bottom: -1px;
+  }
+
+  .type-select {
+    margin-left: auto;
+  }
+  
+  .stats {
+    margin-right: 1rem;
+
+    > .caption {
+      display: block;
+    }
+  }
+
+  sig-chart-variacion {
+    display: block;
+    width: 100%;
+    height: nb-theme(card-height-medium);
+
+    ::ng-deep {
+      .pie-label {
+        fill: nb-theme(text-basic-color);
+      }
+
+      text {
+        fill: nb-theme(text-hint-color);
+      }
+      
+      .chart-legend {
+        .legend-labels {
+          background: nb-theme(background-basic-color-2);
+        }
+        .legend-label {
+          color: nb-theme(text-hint-color);
+          .active .legend-label-text {
+            color: nb-theme(text-basic-color);
+          }
+        }
+      }
+
+      .total-value,
+      .item-value,
+      .item-percent {
+        line-height: 1.25;
+      }
+
+      .legend-items {
+        overflow-y: hidden;
+      }
+    }
+  }
+}
